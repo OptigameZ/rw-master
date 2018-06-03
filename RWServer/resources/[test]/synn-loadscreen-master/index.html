@@ -1,0 +1,64 @@
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <link type ="text/css" rel ="stylesheet" href ="css/index.css"/>
+        <link type ="text/css" rel ="stylesheet" href ="css/colors.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <script type="text/javascript">
+          var numberOfSongs = 3
+          var sound = new Array(numberOfSongs+1)
+          sound[0]= "music/Loading1.ogg"
+          sound[1]= "music/Loading1.ogg"
+          sound[2]= "music/Loading1.ogg"
+          function randomNumber(){
+          var randomLooper = -1
+          while (randomLooper < 0 || randomLooper > numberOfSongs || isNaN(randomLooper)){ randomLooper = parseInt(Math.random()*(numberOfSongs+1))
+          }
+          return randomLooper
+          }
+          var randomsub = randomNumber()
+          var soundFile = sound[randomsub]
+          document.write ('<EMBED src= "' + soundFile + '" hidden=true autostart=true loop=true>')
+        </script>
+    </head>
+
+    <body>
+        <img id="background"/>
+        <img id="background2"/>
+
+
+        <div>
+            <progress id="pb0" class="hide" min="0" max="100" value="0"></progress>
+            <progress id="pb1" class="hide" min="0" max="100" value="0"></progress>
+            <progress id="pb2" class="hide" min="0" max="100" value="0"></progress>
+            <progress id="pb3" class="hide" min="0" max="100" value="0"></progress>
+            <progress id="pb4" class="hide" min="0" max="100" value="0"></progress>
+        </div>
+
+        <h2 id="stateLoad">Loading...</h2>
+        <img id="information" src="img/logo.png">
+
+        <div>
+            <span>
+                <p id="message" class="loading-text">Hold on, crushing snails.... &#x1f40c; &#x1f528;</p>
+                <p class="loading-text stick-to-right"><span id="progress-bar-value">0</span>%</p>
+            </span>
+        </div>
+
+
+
+        <ul id="log"></ul>
+
+        <div id="player"></div>
+    </body>
+
+    <script src="js/synn.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/logger.js"></script>
+    <script src="js/progressbar-main.js"></script>
+    <script src="js/progressbar-handler.js"></script>
+    <script src="js/progressbar-renderer.js"></script>
+    <script src="js/background-handler.js"></script>
+    <script src="js/updateText.js"></script>
+</html>
